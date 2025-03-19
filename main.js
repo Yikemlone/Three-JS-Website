@@ -127,20 +127,19 @@ function documentMouseMove(event){
 const clock = new THREE.Clock()
 const tick = () =>
 {
-    targetX = mouseX * .001
-    targetY = mouseY * .001
+  targetX = mouseX * .001
+  targetY = mouseY * .001
 
-    const elapsedTime = clock.getElapsedTime()
+  const elapsedTime = clock.getElapsedTime()
 
-    mesh.rotation.y = .5 * elapsedTime
-    mesh.rotation.y +=  targetY //.05 * (targetY - mesh.rotation.y)
-    mesh.position.z += - .05 * (targetX - mesh.rotation.x)
-    mesh.rotation.z += .05 * (targetX - mesh.rotation.z)
+  mesh.rotation.y = .5 * elapsedTime
+  mesh.rotation.y +=  targetY //.05 * (targetY - mesh.rotation.y)
+  mesh.position.z += - .05 * (targetX - mesh.rotation.x)
+  mesh.rotation.z += .05 * (targetX - mesh.rotation.z)
 
+  renderer.render(scene, camera)
 
-    renderer.render(scene, camera)
-
-    window.requestAnimationFrame(tick)
+  window.requestAnimationFrame(tick)
 }
 
 tick()
